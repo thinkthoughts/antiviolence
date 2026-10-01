@@ -6,6 +6,23 @@
 
   <title>#antiviolent</title>
 
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+
+  <script
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+
   <style>
     :root {
       color-scheme: dark;
@@ -43,6 +60,10 @@
     }
 
     header {
+      display: flex;
+      align-items: baseline;
+      gap: .6rem;
+      flex-wrap: wrap;
       margin-bottom: 40px;
     }
 
@@ -51,6 +72,14 @@
       font-size: clamp(2rem, 7vw, 4rem);
       font-weight: 700;
       letter-spacing: -0.04em;
+    }
+
+    .byline {
+      opacity: .6;
+    }
+
+    .byline a {
+      color: inherit;
     }
 
     .reading-point {
@@ -131,15 +160,77 @@
       display: none;
       color: #ffb4b4;
     }
+
+    .math-footer {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .math-anchor {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.01)
+        );
+    }
+
+    .math-label {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: .75rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .math-display {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      text-align: center;
+    }
+
+    .math-sub {
+      margin-top: 12px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .math-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .math-actions a,
+    .math-actions button {
+      font: inherit;
+      color: var(--text);
+    }
+
+    .math-actions a {
+      text-underline-offset: 4px;
+    }
+
+    .math-actions button {
+      padding: 9px 14px;
+      background: transparent;
+    }
   </style>
 </head>
 
 <body>
   <main>
-    <header style="display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;">
+    <header>
       <h1>#antiviolent</h1>
-      <span style="opacity:.6">
-        by <a href="https://readingpoint.app" style="color:inherit">readingpoint.app</a>
+      <span class="byline">
+        by <a href="https://readingpoint.app">readingpoint.app</a>
       </span>
     </header>
 
@@ -147,6 +238,7 @@
       <article class="card">
         <p class="label">reading point</p>
         <p id="tweetText" class="text"></p>
+
         <a
           id="tweetUrl"
           class="source"
@@ -170,6 +262,40 @@
       <span id="position"></span>
       <button id="nextButton" type="button">next →</button>
     </nav>
+
+    <footer class="math-footer">
+      <div class="math-anchor">
+        <div class="math-label">mathematical reading point</div>
+
+        <div class="math-display">
+          \[
+            (1+1)\times 3\times 5 = 30
+          \]
+        </div>
+
+        <div class="math-sub">
+          where primes \(p&gt;5\) satisfy
+          \[
+            p \bmod 30 \in
+            \{1,7,11,13,17,19,23,29\}.
+          \]
+        </div>
+
+        <div class="math-actions">
+          <button id="copyMath" type="button">
+            copy statement
+          </button>
+
+          <a
+            href="/gdt.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            General Divisor Theorem ↗
+          </a>
+        </div>
+      </div>
+    </footer>
   </main>
 
   <script>
@@ -182,6 +308,7 @@
     const nextButton = document.getElementById("nextButton");
     const position = document.getElementById("position");
     const error = document.getElementById("error");
+    const copyMath = document.getElementById("copyMath");
 
     function render() {
       if (!entries.length) return;
@@ -214,26 +341,16 @@
 
         const data = await response.json();
 
-        /*
-          Current feed.json:
-            { url, text, grok }
-
-          Future feed.json:
-            [
-              { url, text, grok },
-              { url, text, grok }
-            ]
-
-          For an array, the LAST entry is treated
-          as the most recent reading point.
-        */
-        entries = Array.isArray(data) ? [...data].reverse() : [data];
+        entries = Array.isArray(data)
+          ? [...data].reverse()
+          : [data];
 
         index = 0;
         render();
       } catch (err) {
         error.style.display = "block";
-        error.textContent = `Unable to load feed.json: ${err.message}`;
+        error.textContent =
+          `Unable to load feed.json: ${err.message}`;
         nextButton.disabled = true;
       }
     }
@@ -243,6 +360,21 @@
 
       index = (index + 1) % entries.length;
       render();
+    });
+
+    copyMath.addEventListener("click", async () => {
+      const statement =
+        "(1+1)×3×5=30\n" +
+        "p > 5 ⇒ p mod 30 ∈ {1,7,11,13,17,19,23,29}";
+
+      await navigator.clipboard.writeText(statement);
+
+      const previous = copyMath.textContent;
+      copyMath.textContent = "copied ✓";
+
+      setTimeout(() => {
+        copyMath.textContent = previous;
+      }, 1400);
     });
 
     loadFeed();
