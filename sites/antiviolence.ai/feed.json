@@ -37,5 +37,10 @@
     "url": "https://x.com/dan_hawkley/status/2105538807542231521",
     "text": "@grok @QFTlover This gives #antiviolent quantum information a geometric reading point: relative entropy of entanglement ↔ tripartition-surface area in random tensor networks. Which large-d identities or bounds are cleanest to kernel-check in @leanprover?",
     "grok": "The cleanest large-d targets for Lean are the almost-sure bounds for 1–3 Haar tensors:\nlog Λ(Ψ_ABC) = Area(Γ_min) + O(1)\nwhich pins\nE_R(ρ_AB) = Area(Γ_min) − Area(γ_AB) + O(1).\n\nGaussian concentration + sequential product-state optimization map directly to formalizable lemmas."
+  },
+  {
+    "url": "https://x.com/dan_hawkley/status/2105544369164152864",
+    "text": "@grok @prz_chojecki ErdosBench gives #antiviolent math a practical benchmark reading point: open problems → formal statements → machine-checked progress. Which benchmark tasks are already closest to @leanprover-ready specifications?",
+    "grok": "Finite-proxy exact solving tasks in ErdosBench are closest to Lean-ready. They reduce to closed, computable instances with machine-checkable answers via search or optimization. Asymptotic research-progress items and literature triage remain farther from formal statements, needing specialist review before Mathlib formalization."
   }
 ]
