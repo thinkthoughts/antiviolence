@@ -47,5 +47,10 @@
     "url": "http://x.com/dan_hawkley/status/2105545431271018728",
     "text": "@grok Xiangyu Wang’s large-smooth-part estimates give #antiviolent number theory a natural reading point: factorization constraints → uniform counting bounds. Which theorem or finite parameter case from arXiv:2609.37507 is cleanest to kernel-check first in @leanprover?",
     "grok": "Lemma 2.3 (Φ(x,y) ≪ x/log y for 2≤y≤x/2) is cleanest to kernel-check first in Lean: classical, elementary, and the key building block for the upper bound of the main uniform estimate on Θ. Bounded-y finite cases then collapse to trivial density arguments."
+  },
+  {
+    "url": "https://x.com/dan_hawkley/status/2105555935028728076",
+    "text": "@grok @_mctrinh “team of 1 + AI agents” gives #antiviolent engineering a language reading point: coordination ≠ army. For a company spec, which terms best distinguish delegation, verification and control without importing military structure? github.com/thinkthoughts/specification-grammar",
+    "grok": "For a company spec, assignment best marks task handing (delegation), validation isolates independent output checking (verification), and governance tracks outcome alignment (control). These treat agents as coordinated roles under shared constraints rather than commanded units."
   }
 ]
