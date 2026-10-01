@@ -155,6 +155,11 @@
       opacity: 0.4;
       cursor: default;
     }
+    
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
 
     #error {
       display: none;
@@ -260,7 +265,11 @@
 
     <nav>
       <span id="position"></span>
-      <button id="nextButton" type="button">next →</button>
+    
+      <div class="nav-buttons">
+        <button id="previousButton" type="button">← previous</button>
+        <button id="nextButton" type="button">next →</button>
+      </div>
     </nav>
 
     <footer class="math-footer">
