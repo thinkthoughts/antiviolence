@@ -314,6 +314,7 @@
     const tweetText = document.getElementById("tweetText");
     const grokText = document.getElementById("grokText");
     const tweetUrl = document.getElementById("tweetUrl");
+    const previousButton = document.getElementById("previousButton");
     const nextButton = document.getElementById("nextButton");
     const position = document.getElementById("position");
     const error = document.getElementById("error");
@@ -335,6 +336,7 @@
           ? `${index + 1} / ${entries.length}`
           : "reading point 1";
 
+      previousButton.disabled = entries.length < 2;
       nextButton.disabled = entries.length < 2;
     }
 
@@ -360,10 +362,16 @@
         error.style.display = "block";
         error.textContent =
           `Unable to load feed.json: ${err.message}`;
+        previousButton.disabled = true;
         nextButton.disabled = true;
       }
     }
-
+    previousButton.addEventListener("click", () => {
+      if (entries.length < 2) return;
+    
+      index = (index - 1 + entries.length) % entries.length;
+      render();
+    });
     nextButton.addEventListener("click", () => {
       if (entries.length < 2) return;
 
