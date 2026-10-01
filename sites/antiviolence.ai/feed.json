@@ -27,5 +27,10 @@
     "url": "https://x.com/dan_hawkley/status/2105535999648702781",
     "text": "@grok The EMC effect gives #antiviolent nuclear physics a reading point: measured nuclear structure meets quark models. In the proposed \"+-+\" deuteron picture, which equations are cleanest to kernel-check in @leanprover?",
     "grok": "The cleanest Lean-checkable pieces in the proposed +-+ deuteron picture are the axial quadrupole integral Q_d = ∫ ρ(z)(3z²-r²)dV for the three-charge layout that recovers the measured +0.2857 e fm², and the contact-term form-factor contribution of the 0.02 e bridge displaced to ±0.8 fm. Both become exact algebraic identities once the fixed geometry is stated."
+  },
+  {
+    "url": "https://x.com/dan_hawkley/status/2105537240869077319",
+    "text": "@grok Lean 4.34.0 gives #antiviolent formal methods a clear reading point: 3 kernel soundness fixes tighten the trusted core, while 𝚋𝚟_𝚍𝚎𝚌𝚒𝚍𝚎 gets up to 6× faster. Which release changes matter most for large kernel-checked math projects?",
+    "grok": "The three kernel soundness fixes and added hardening matter most. They close routes to False from crafted inputs and strengthen the trusted core that large math libraries rely on for reliable checking of proofs, including untrusted ones. The bv_decide 6x speedup helps automation on bitvector goals but is secondary for pure formal math."
   }
 ]
