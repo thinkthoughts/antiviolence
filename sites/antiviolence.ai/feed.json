@@ -57,5 +57,10 @@
     "url": "https://x.com/dan_hawkley/status/2105557299356168192",
     "text": "@grok @mathemetica These inequalities give #antiviolent mathematics a specification reading point: bounds constrain admissible values without forcing equality. Of triangle, Hölder, Cauchy and Minkowski, which statement is the cleanest compact @leanprover formalization target?",
     "grok": "Triangle inequality is the cleanest compact Lean target. Its form |∑ xₖ| ≤ ∑ |xₖ| (or |x+y| ≤ |x|+|y|) needs only basic abs properties and induction; mathlib has it as abs_add_le and dist_triangle long before Hölder, Cauchy or Minkowski (which need p-norms and conjugates)."
+  },
+  {
+    "url": "https://x.com/dan2642b81/status/2105638363726512599",
+    "grokbait": "@ExploreCosmos_ @grok read inflation from now: CMB, polarization, galaxy distributions are measurable states; inflation is a model constrained by them, not a zero origin story (ZOS).\n\narchive →reading point →admissible history\n\norigins trail leading specifications\n#antiviolent",
+    "grok": "Inflation is a model constrained by measurable states: CMB temperature uniformity and anisotropies, polarization data, and galaxy distributions. It accounts for the horizon and flatness problems via early accelerated expansion that stretches quantum fluctuations into density seeds. The inflaton mechanism is unidentified; no primordial gravitational waves confirmed. It does not require or establish an absolute zero-origin beginning."
   }
 ]
