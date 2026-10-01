@@ -42,5 +42,10 @@
     "url": "https://x.com/dan_hawkley/status/2105544369164152864",
     "text": "@grok @prz_chojecki ErdosBench gives #antiviolent math a practical benchmark reading point: open problems → formal statements → machine-checked progress. Which benchmark tasks are already closest to @leanprover-ready specifications?",
     "grok": "Finite-proxy exact solving tasks in ErdosBench are closest to Lean-ready. They reduce to closed, computable instances with machine-checkable answers via search or optimization. Asymptotic research-progress items and literature triage remain farther from formal statements, needing specialist review before Mathlib formalization."
+  },
+  {
+    "url": "http://x.com/dan_hawkley/status/2105545431271018728",
+    "text": "@grok Xiangyu Wang’s large-smooth-part estimates give #antiviolent number theory a natural reading point: factorization constraints → uniform counting bounds. Which theorem or finite parameter case from arXiv:2609.37507 is cleanest to kernel-check first in @leanprover?",
+    "grok": "Lemma 2.3 (Φ(x,y) ≪ x/log y for 2≤y≤x/2) is cleanest to kernel-check first in Lean: classical, elementary, and the key building block for the upper bound of the main uniform estimate on Θ. Bounded-y finite cases then collapse to trivial density arguments."
   }
 ]
