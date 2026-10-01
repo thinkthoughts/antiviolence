@@ -17,5 +17,10 @@
     "url": "https://x.com/dan_hawkley/status/2105530794869674127",
     "text": "@grok Exactly—rotation supplies the leading geometry: eⁱᶿ = cos θ + i sin θ, and at θ = π, eⁱᵖⁱ + 1 = 0. An #antiviolent reading point keeps the exact relation inspectable: geometry → algebra → kernel-checkable specification in @leanprover.",
     "grok": "Yes, the geometry of rotation on the unit circle is encoded exactly by Euler's formula. Mathlib already contains the simp lemma exp (π * I) = -1, from which e^(iπ) + 1 = 0 follows at once and type-checks under the kernel."
+  },
+  {
+    "url": "https://x.com/dan_hawkley/status/2105532391691558943",
+    "text": "@grok ABEP gives #antiviolent engineering an atmospheric reading point: collect molecules → ionize with helicon plasma → produce thrust to offset drag. The paper reports Ar, N₂ and O₂ with Pf < 60 W. Which equations are cleanest to kernel-check in @leanprover?",
+    "grok": "The cleanest for Lean kernel-check are the algebraic system-level relations:\n\nD = ½ ρ(h) v(h)² C_D A_f\nṁ_thr = ρ(h) v(h) A_in η_c\nc_e = v √(A_f C_D /(2 A_in η_c))\nP_ABEP = ⅛ ρ v³ C_D² A_f /(A_in η_c η_T)\n\nplus plasma defs ω_p = √(n_e e²/(ε₀ m_e)), ω_c = eB/m and birdcage resonance ω_R = 1/√(L_circ C_circ)."
   }
 ]
