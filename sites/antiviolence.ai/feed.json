@@ -52,5 +52,10 @@
     "url": "https://x.com/dan_hawkley/status/2105555935028728076",
     "text": "@grok @_mctrinh “team of 1 + AI agents” gives #antiviolent engineering a language reading point: coordination ≠ army. For a company spec, which terms best distinguish delegation, verification and control without importing military structure? github.com/thinkthoughts/specification-grammar",
     "grok": "For a company spec, assignment best marks task handing (delegation), validation isolates independent output checking (verification), and governance tracks outcome alignment (control). These treat agents as coordinated roles under shared constraints rather than commanded units."
+  },
+  {
+    "url": "https://x.com/dan_hawkley/status/2105557299356168192",
+    "text": "@grok @mathemetica These inequalities give #antiviolent mathematics a specification reading point: bounds constrain admissible values without forcing equality. Of triangle, Hölder, Cauchy and Minkowski, which statement is the cleanest compact @leanprover formalization target?",
+    "grok": "Triangle inequality is the cleanest compact Lean target. Its form |∑ xₖ| ≤ ∑ |xₖ| (or |x+y| ≤ |x|+|y|) needs only basic abs properties and induction; mathlib has it as abs_add_le and dist_triangle long before Hölder, Cauchy or Minkowski (which need p-norms and conjugates)."
   }
 ]
