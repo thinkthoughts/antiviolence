@@ -9,22 +9,41 @@
   <style>
     :root{color-scheme:dark;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:#101412;color:#eef3ed}
     *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px}
-    main{text-align:center;max-width:760px;width:100%}
-    p{font-size:clamp(1.4rem,3.8vw,2.6rem);line-height:1.6;font-weight:550;letter-spacing:-.035em;margin:0}
+    main{text-align:center;max-width:900px;width:100%}
+    .heading{font-size:clamp(1.45rem,3.8vw,2.25rem);line-height:1.35;font-weight:680;letter-spacing:-.025em;margin:0}
+    .kicker{font-size:clamp(.9rem,2vw,1.4rem);font-weight:400;color:#89968e;letter-spacing:.075em;margin:0 0 35px}
+    .formula{font-size:clamp(2rem,4.4vw,2.7rem);font-weight:750;letter-spacing:0;margin:32px 0}
+    .levels-title{font-size:clamp(1.5rem,3.8vw,2.15rem);font-weight:700;margin:26px 0 32px}
     .arithmetic{white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:0}
     a{font-weight:800;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.14em;border-radius:.15em;transition:text-decoration-color .15s}
     a:hover,a:focus-visible{text-decoration-color:currentColor}a:focus-visible{outline:2px solid currentColor;outline-offset:5px}
     .red{color:#ff7773}.yellow{color:#f4ce66}.green{color:#79d8a1}
     .plus{color:#b4c5b8;margin-inline:.15em}
+    .choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,4vw,50px);margin:0 auto}
+    .level{display:flex;flex-direction:column;align-items:center;gap:20px;text-decoration:none;font-weight:500;font-size:clamp(1.2rem,3vw,2rem)}
+    .light{width:clamp(65px,10vw,96px);height:clamp(65px,10vw,96px);border-radius:50%;display:grid;place-items:center;transition:transform .16s}
+    .light::after{content:"";width:50%;height:50%;border-radius:50%;background:currentColor}
+    .level:hover .light,.level:focus-visible .light{transform:scale(1.07)}
+    .level.red .light{background:#4b2427}.level.yellow .light{background:#58461f}.level.green .light{background:#214735}
+    .closing{color:#89968e;font-size:clamp(1rem,2.5vw,1.5rem);font-weight:400;margin:39px 0 0}
+    @media(max-width:450px){.choices{gap:5px}.level{gap:13px}}
     @media(prefers-reduced-motion:reduce){a{transition:none}}
   </style>
 </head>
 <body>
   <main>
-    <p>All reading points (now) specify<br>
-      <span class="arithmetic">
-        <a class="red" href="https://github.com/thinkthoughts/news/blob/main/MATH_00.md" aria-label="Math0 reading level">1</a><span class="plus">+</span><a class="yellow" href="https://github.com/thinkthoughts/news/blob/main/MATH_05.md" aria-label="Math5 reading level">1</a><span class="plus">+</span><a class="green" href="https://github.com/thinkthoughts/news/blob/main/MATH_29.md" aria-label="Math29 reading level">1</a>
-      </span><br>reading levels:</p>
+    <p class="kicker">READING LEVEL TEST</p>
+    <h1 class="heading">All reading points (now) specify</h1>
+    <p class="formula arithmetic">
+      <a class="red" href="https://github.com/thinkthoughts/news/blob/main/MATH_00.md" aria-label="Math0 reading level">1</a><span class="plus">+</span><a class="yellow" href="https://github.com/thinkthoughts/news/blob/main/MATH_05.md" aria-label="Math5 reading level">1</a><span class="plus">+</span><a class="green" href="https://github.com/thinkthoughts/news/blob/main/MATH_29.md" aria-label="Math29 reading level">1</a>
+    </p>
+    <h2 class="levels-title">reading levels:</h2>
+    <nav class="choices" aria-label="Choose your reading level">
+      <a class="level red" href="https://github.com/thinkthoughts/news/blob/main/MATH_00.md" aria-label="Math0: local imagination"><span class="light" aria-hidden="true"></span><span>math0</span></a>
+      <a class="level yellow" href="https://github.com/thinkthoughts/news/blob/main/MATH_05.md" aria-label="Math5: local anatomy"><span class="light" aria-hidden="true"></span><span>math5</span></a>
+      <a class="level green" href="https://github.com/thinkthoughts/news/blob/main/MATH_29.md" aria-label="Math29: everything else"><span class="light" aria-hidden="true"></span><span>math29</span></a>
+    </nav>
+    <p class="closing">🚥 Choose your reading level</p>
   </main>
 </body>
 </html>
